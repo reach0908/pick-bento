@@ -1,4 +1,9 @@
+// component/ui exports
 export * from '@ui/components/ui/button';
-export * from '@ui/components/ui/card';
 
+// component exports
+export * from '@ui/components/ThemeProvider';
+export * from '@ui/components/ThemeToggle';
+
+// utils exports
 export { cn } from '@ui/lib/utils';

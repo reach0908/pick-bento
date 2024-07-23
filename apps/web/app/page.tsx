@@ -1,9 +1,10 @@
-import {Button} from "@repo/ui"
+import { Button, ThemeToggle } from '@repo/ui';
 
 export default function Page(): JSX.Element {
-  return (
-    <main>
-      <Button>{"shadcn Button in Web!"}</Button>
-    </main>
-  )
+	return (
+		<main>
+			<ThemeToggle />
+			<Button>{'shadcn Button in Web!'}</Button>
+		</main>
+	);
 }
