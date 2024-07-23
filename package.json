@@ -1,32 +1,32 @@
 {
-  "name": "my-turborepo",
-  "version": "0.0.0",
-  "private": true,
-  "description": "",
-  "author": "",
-  "license": "UNLICENSED",
-  "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "test": "turbo test",
-    "test:e2e": "turbo test:e2e",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "dev:web": "turbo run dev --filter ui --filter web",
-    "dev:api": "turbo run dev --filter ui --filter api",
-    "dev:both": "turbo run dev --filter ui --filter api --filter web",
-    "dev:ui": "turbo run dev --filter ui --filter storybook",
-    "ui:add": "pnpm --filter ui ui:add",
-    "clean": "rm -rf .turbo && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name '.next' -type d -prune -exec rm -rf '{}' + && rm -f package-lock.json + && pnpm install"
-  },
-  "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
-    "prettier": "^3.2.5",
-    "turbo": "^2.0.9"
-  },
-  "packageManager": "pnpm@8.15.5",
-  "engines": {
-    "node": ">=18"
-  }
+	"name": "my-turborepo",
+	"version": "0.0.0",
+	"private": true,
+	"description": "",
+	"author": "",
+	"license": "UNLICENSED",
+	"scripts": {
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"test": "turbo test",
+		"test:e2e": "turbo test:e2e",
+		"lint": "turbo lint",
+		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
+		"dev:web": "turbo run dev --filter ui --filter web",
+		"dev:api": "turbo run dev --filter ui --filter api",
+		"dev:both": "turbo run dev --filter ui --filter api --filter web",
+		"dev:ui": "turbo run dev --filter ui --filter storybook",
+		"ui:add": "pnpm --filter ui ui:add",
+		"clean": "rm -rf .turbo && find . -name 'node_modules' -type d -prune -exec rm -rf '{}' + && find . -name '.next' -type d -prune -exec rm -rf '{}' + && rm -f package-lock.json + && pnpm install"
+	},
+	"devDependencies": {
+		"@repo/eslint-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
+		"prettier": "^3.2.5",
+		"turbo": "^2.0.9"
+	},
+	"packageManager": "pnpm@8.15.5",
+	"engines": {
+		"node": ">=18"
+	}
 }

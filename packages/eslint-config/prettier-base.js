@@ -1,4 +1,6 @@
 /** @type {import("prettier").Config} */
 module.exports = {
-  singleQuote: true,
+	tabWidth: 4,
+	useTabs: true,
+	singleQuote: true,
 };
