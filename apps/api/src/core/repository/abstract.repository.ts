@@ -1,7 +1,9 @@
 import { FilterQuery, Model, QueryOptions } from 'mongoose';
-import { BaseRepository } from '../interface/base-repository.interface';
+import { BaseRepositoryInterface } from '../interface/base-repository.interface';
 
-export abstract class AbstractRepository<T> implements BaseRepository<T> {
+export abstract class AbstractRepository<T>
+	implements BaseRepositoryInterface<T>
+{
 	protected repositry: Model<T>;
 
 	constructor(repository: Model<T>) {

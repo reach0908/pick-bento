@@ -1,6 +1,6 @@
 import { FilterQuery, QueryOptions } from 'mongoose';
 
-export interface BaseRepository<T> {
+export interface BaseRepositoryInterface<T> {
 	create(payload: Partial<T>): Promise<T>;
 
 	find(query?: any, options?: QueryOptions): Promise<T[]>;

@@ -4,6 +4,6 @@ export const DB = 'db';
 
 export default registerAs(DB, () => ({
 	mongoDB: {
-		uri: process.env.MONGODB_URL,
+		uri: process.env.MONGODB_URI,
 	},
 }));

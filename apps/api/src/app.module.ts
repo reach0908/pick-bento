@@ -8,6 +8,8 @@ import { AppController } from './app.controller';
 import appConfig from './configs/app.config';
 import dbConfig, { DB } from './configs/db.config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { UserModule } from './modules/user/user.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
 	imports: [
@@ -22,12 +24,17 @@ import { MongooseModule } from '@nestjs/mongoose';
 		MongooseModule.forRootAsync({
 			imports: [ConfigModule],
 			useFactory: async (configService: ConfigService) => {
+				console.log({ uri: configService.get(DB).mongoDB.uri });
 				return {
 					uri: configService.get(DB).mongoDB.uri,
+					useNewUrlParser: true,
+					useUnifiedTopology: true,
 				};
 			},
 			inject: [ConfigService],
 		}),
+		UserModule,
+		AuthModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],

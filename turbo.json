@@ -3,7 +3,7 @@
 	"globalDependencies": ["**/.env.*local"],
 	"tasks": {
 		"build": {
-			"env": ["MONGODB_URL", "HOST", "PORT"],
+			"env": ["MONGODB_URI", "HOST", "PORT"],
 			"inputs": [
 				"$TURBO_DEFAULT$",
 				".env.production.local",
