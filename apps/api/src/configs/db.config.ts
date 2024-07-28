@@ -1,7 +1,9 @@
 import { registerAs } from '@nestjs/config';
 
-export default registerAs('db', () => ({
+export const DB = 'db';
+
+export default registerAs(DB, () => ({
 	mongoDB: {
-		url: process.env.MONGODB_URL,
+		uri: process.env.MONGODB_URL,
 	},
 }));
