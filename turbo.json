@@ -1,9 +1,10 @@
 {
 	"$schema": "https://turbo.build/schema.json",
 	"globalDependencies": ["**/.env.*local"],
+	"globalEnv": ["KAKAO_KEY", "KAKAO_SECRET"],
 	"tasks": {
 		"build": {
-			"env": ["MONGODB_URI", "HOST", "PORT"],
+			"env": ["MONGODB_URI", "HOST", "PORT", "KAKAO_KEY", "KAKAO_SECRET"],
 			"inputs": [
 				"$TURBO_DEFAULT$",
 				".env.production.local",

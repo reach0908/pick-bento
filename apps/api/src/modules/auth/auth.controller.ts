@@ -1,34 +1,36 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, UseGuards, Req, Res, Redirect } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+	constructor(private readonly authService: AuthService) {}
 
-  @Post()
-  create(@Body() createAuthDto: CreateAuthDto) {
-    return this.authService.create(createAuthDto);
-  }
+	@Get('/google/login')
+	async googleAuth() {}
 
-  @Get()
-  findAll() {
-    return this.authService.findAll();
-  }
+	@Get('/google/callback')
+	async googleAuthCallback() {}
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.authService.findOne(+id);
-  }
+	@Get('/naver/login')
+	async naverAuth() {}
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateAuthDto: UpdateAuthDto) {
-    return this.authService.update(+id, updateAuthDto);
-  }
+	@Get('/naver/callback')
+	async naverAuthCallback() {}
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.authService.remove(+id);
-  }
+	@Get('/kakao/login')
+	async kakaoAuth() {}
+
+	@Get('/kakao/callback')
+	@UseGuards(AuthGuard('kakao'))
+	@Redirect('http://localhost:3001', 301)
+	async kakaoAuthCallback(@Req() req: Request, @Res() res: Response) {
+		// const { accessToken, refreshToken } = await this.authService.getJWT(
+		// 	req.user.kakaoId,
+		// );
+		// res.cookie('accessToken', accessToken, { httpOnly: true });
+		// res.cookie('refreshToken', refreshToken, { httpOnly: true });
+		// res.cookie('isLoggedIn', true, { httpOnly: false });
+		console.log('asdasd');
+	}
 }

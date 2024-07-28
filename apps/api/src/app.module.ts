@@ -10,6 +10,7 @@ import dbConfig, { DB } from './configs/db.config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
+import authConfig from './configs/auth.config';
 
 @Module({
 	imports: [
@@ -18,13 +19,12 @@ import { AuthModule } from './modules/auth/auth.module';
 			cache: true,
 			// 다른 모듈에서 import 하는 번거로움 제거
 			isGlobal: true,
-			load: [appConfig, dbConfig],
+			load: [appConfig, dbConfig, authConfig],
 			// TODO: validation schema 추가하기
 		}),
 		MongooseModule.forRootAsync({
 			imports: [ConfigModule],
 			useFactory: async (configService: ConfigService) => {
-				console.log({ uri: configService.get(DB).mongoDB.uri });
 				return {
 					uri: configService.get(DB).mongoDB.uri,
 					useNewUrlParser: true,

@@ -16,6 +16,14 @@ import KakaoLogo from '@/public/kakao_logo.svg';
 import NaverLogo from '@/public/naver_logo.svg';
 
 export function SignUpForm() {
+	const handleKakaoLogin = () => {
+		const KAKAO_REST_API_KEY = process.env.NEXT_PUBLIC_KAKAO_KEY;
+
+		const KAKAO_REDIRECT_URI = 'http://localhost:3000/auth/kakao/callback';
+		console.log({ KAKAO_REST_API_KEY, KAKAO_REDIRECT_URI });
+		window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
+	};
+
 	return (
 		<Card>
 			<CardHeader>
@@ -24,9 +32,7 @@ export function SignUpForm() {
 			</CardHeader>
 			<CardContent className="flex flex-col gap-2">
 				<Button
-					onClick={() => {
-						window.alert('asdasd');
-					}}
+					onClick={handleKakaoLogin}
 					size="lg"
 					className="flex flex-row gap-2 w-full p-6 bg-[#FEE500] hover:bg-[#FEE500]/70"
 				>
