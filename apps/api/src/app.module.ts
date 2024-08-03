@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule, ConfigService, ConfigType } from '@nestjs/config';
 
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
@@ -25,8 +25,10 @@ import authConfig from './configs/auth.config';
 		MongooseModule.forRootAsync({
 			imports: [ConfigModule],
 			useFactory: async (configService: ConfigService) => {
+				const config: ConfigType<typeof dbConfig> =
+					configService.get(DB);
 				return {
-					uri: configService.get(DB).mongoDB.uri,
+					uri: config.mongoDB.uri,
 					useNewUrlParser: true,
 					useUnifiedTopology: true,
 				};

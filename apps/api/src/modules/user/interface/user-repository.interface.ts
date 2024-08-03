@@ -1,5 +1,7 @@
 import { BaseRepositoryInterface } from 'src/core/interface/base-repository.interface';
-import { User } from '../schema/user.schema';
+import { UserDocument } from '../schema/user.schema';
+
+export const KEY = 'UserRepositoryInterface';
 
 export interface UserRepositoryInterface
-	extends BaseRepositoryInterface<User> {}
+	extends BaseRepositoryInterface<UserDocument> {}

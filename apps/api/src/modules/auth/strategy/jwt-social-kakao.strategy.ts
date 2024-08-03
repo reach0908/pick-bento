@@ -3,6 +3,7 @@ import { ConfigType } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { Profile, Strategy } from 'passport-kakao';
 import authConfig from 'src/configs/auth.config';
+import { PROVIDER } from 'src/modules/user/constant/user-provider.constant';
 
 @Injectable()
 export class JwtKakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
@@ -24,12 +25,12 @@ export class JwtKakaoStrategy extends PassportStrategy(Strategy, 'kakao') {
 		done: (error: any, user?: any, info?: any) => void,
 	) {
 		try {
-			console.log({ accessToken, refreshToken, profile });
 			const { _json } = profile;
 			const user = {
-				kakaoId: _json.id,
-				nickname: _json.properties.nickname,
-				photo: _json.properties.profile_image,
+				provider: PROVIDER.KAKAO,
+				providerId: _json.id,
+				name: _json.properties.nickname,
+				image: _json.properties.profile_image,
 			};
 			done(null, user);
 		} catch (error) {
