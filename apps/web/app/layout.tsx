@@ -19,7 +19,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 			<head />
 			<body
 				className={cn(
-					'min-h-screen bg-noise-light dark:bg-slate-700 font-sans antialiased',
+					'bg-noise-light min-h-screen font-sans antialiased dark:bg-slate-700',
 					inter.className,
 				)}
 			>
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 					defaultTheme="system"
 					enableSystem
 				>
-					<main className="container mx-auto max-w-7xl pt-6 pb-6 px-6 flex-grow">
+					<main className="container mx-auto max-w-7xl flex-grow px-6 pb-6 pt-6">
 						{children}
 					</main>
 					<BottomNavigation />

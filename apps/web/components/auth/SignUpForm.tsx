@@ -26,11 +26,11 @@ export function SignUpForm() {
 				<Button
 					asChild
 					size="lg"
-					className="flex flex-row gap-2 w-full p-6 bg-[#FEE500] hover:bg-[#FEE500]/70"
+					className="flex w-full flex-row gap-2 bg-[#FEE500] p-6 hover:bg-[#FEE500]/70"
 				>
 					<Link
 						href={'http://localhost:3000/auth/kakao/login'}
-						className="flex flex-row gap-2 w-full"
+						className="flex w-full flex-row gap-2"
 					>
 						<Image
 							src={KakaoLogo}
@@ -38,7 +38,7 @@ export function SignUpForm() {
 							width={24}
 							height={24}
 						/>
-						<p className="flex-1 text-slate-900 font-semibold items-center">
+						<p className="flex-1 items-center font-semibold text-slate-900">
 							카카오 회원가입하기
 						</p>
 					</Link>
@@ -48,7 +48,7 @@ export function SignUpForm() {
 						window.alert('asdasd');
 					}}
 					size="lg"
-					className="flex flex-row gap-2 w-full p-6 bg-[#03C75A] hover:bg-[#03C75A]/70"
+					className="flex w-full flex-row gap-2 bg-[#03C75A] p-6 hover:bg-[#03C75A]/70"
 				>
 					<Image
 						src={NaverLogo}

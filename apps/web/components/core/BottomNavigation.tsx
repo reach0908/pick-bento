@@ -12,37 +12,37 @@ import {
 import Link from 'next/link';
 export default function BottomNavigation() {
 	return (
-		<nav className="fixed z-50 w-full h-16 max-w-xs -translate-x-1/2 border border-gray-200 rounded-full bottom-4 left-1/2 bg-white/30 dark:bg-slate-800 dark:border-gray-600 bg-opacity-60 backdrop-filter backdrop-blur-lg shadow-lg ring-1 ring-black/5">
-			<div className="grid h-full max-w-lg grid-cols-5 mx-auto">
+		<nav className="fixed bottom-4 left-1/2 z-50 h-16 w-full max-w-xs -translate-x-1/2 rounded-full border border-gray-200 bg-white/30 bg-opacity-60 shadow-lg ring-1 ring-black/5 backdrop-blur-lg backdrop-filter dark:border-gray-600 dark:bg-slate-800">
+			<div className="mx-auto grid h-full max-w-lg grid-cols-5">
 				<Link
 					href="/"
-					className="inline-flex flex-col items-center justify-center px-5 rounded-s-full hover:bg-gray-50 dark:hover:bg-slate-900 group"
+					className="group inline-flex flex-col items-center justify-center rounded-s-full px-5 hover:bg-gray-50 dark:hover:bg-slate-900"
 				>
 					<HomeIcon />
 				</Link>
 				<Link
 					href="/ranking"
-					className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-slate-900 group"
+					className="group inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-slate-900"
 				>
 					<LineChartIcon />
 				</Link>
 				<div className="flex items-center justify-center">
 					<Link
 						href="/search"
-						className="inline-flex items-center justify-center w-10 h-10 font-medium bg-blue-600 rounded-full hover:bg-blue-700 group focus:ring-4 focus:ring-blue-300 focus:outline-none"
+						className="group inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 font-medium hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
 					>
 						<SearchIcon color="white" />
 					</Link>
 				</div>
 				<Link
 					href="/bento"
-					className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-slate-900 group"
+					className="group inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-slate-900"
 				>
 					<LayoutDashboardIcon />
 				</Link>
 				<Link
 					href="/my"
-					className="inline-flex flex-col items-center justify-center px-5 rounded-e-full hover:bg-gray-50 dark:hover:bg-slate-900 group"
+					className="group inline-flex flex-col items-center justify-center rounded-e-full px-5 hover:bg-gray-50 dark:hover:bg-slate-900"
 				>
 					<UserIcon />
 				</Link>
