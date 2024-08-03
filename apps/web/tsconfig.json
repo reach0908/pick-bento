@@ -1,23 +1,23 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
-  "compilerOptions": {
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./*"], //web 프로젝트 안에서 쓸 절대 경로
-      "@ui/*": ["../../packages/ui/*"]// ui 패키지의 절대경로와 똑같이 맞춰주기
-    }
-  },
-  "include": [
-    "next-env.d.ts",
-    "next.config.js",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": ["node_modules"]
+	"extends": "@repo/typescript-config/nextjs.json",
+	"compilerOptions": {
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./*"], //web 프로젝트 안에서 쓸 절대 경로
+			"@ui/*": ["../../packages/ui/*"] // ui 패키지의 절대경로와 똑같이 맞춰주기
+		}
+	},
+	"include": [
+		"next-env.d.ts",
+		"next.config.js",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts"
+	],
+	"exclude": ["node_modules"]
 }

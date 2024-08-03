@@ -15,12 +15,11 @@ import {
 import KakaoLogo from '@/public/kakao_logo.svg';
 import NaverLogo from '@/public/naver_logo.svg';
 
-export function SignUpForm() {
-	return (
-		<Card>
+export function SignInForm() {
+	return (<Card>
 			<CardHeader>
 				<CardTitle>Sign Up</CardTitle>
-				<CardDescription>회원가입</CardDescription>
+				<CardDescription>로그인</CardDescription>
 			</CardHeader>
 			<CardContent className="flex flex-col gap-2">
 				<Button
@@ -28,18 +27,15 @@ export function SignUpForm() {
 					size="lg"
 					className="flex flex-row gap-2 w-full p-6 bg-[#FEE500] hover:bg-[#FEE500]/70"
 				>
-					<Link
-						href={'http://localhost:3000/auth/kakao/login'}
-						className="flex flex-row gap-2 w-full"
-					>
+					<Link href={'http://localhost:3000/auth/kakao/login'}>
 						<Image
 							src={KakaoLogo}
 							alt="kako logo"
 							width={24}
 							height={24}
 						/>
-						<p className="flex-1 text-slate-900 font-semibold items-center">
-							카카오 회원가입하기
+						<p className="flex-1 text-slate-900 font-semibold">
+							카카오톡 로그인하기
 						</p>
 					</Link>
 				</Button>
@@ -56,7 +52,7 @@ export function SignUpForm() {
 						width={24}
 						height={24}
 					/>
-					<p className="flex-1 font-semibold">네이버 회원가입하기</p>
+					<p className="flex-1 font-semibold">네이버 로그인하기</p>
 				</Button>
 			</CardContent>
 		</Card>
