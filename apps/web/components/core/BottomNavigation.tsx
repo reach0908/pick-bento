@@ -1,13 +1,10 @@
 import {
-	Button,
-	Card,
-
 	// Icon
 	HomeIcon,
-	LineChartIcon,
+	BoxesIcon,
 	UserIcon,
 	SearchIcon,
-	LayoutDashboardIcon,
+	LayoutPanelLeftIcon,
 } from '@repo/ui';
 import Link from 'next/link';
 export default function BottomNavigation() {
@@ -16,15 +13,15 @@ export default function BottomNavigation() {
 			<div className="mx-auto grid h-full max-w-lg grid-cols-5">
 				<Link
 					href="/"
-					className="group inline-flex flex-col items-center justify-center rounded-s-full px-5 hover:bg-gray-50 dark:hover:bg-slate-900"
+					className="group inline-flex flex-col items-center justify-center rounded-s-full px-5 backdrop-blur-lg backdrop-filter hover:bg-gray-50 dark:hover:bg-slate-900"
 				>
 					<HomeIcon />
 				</Link>
 				<Link
-					href="/ranking"
-					className="group inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-slate-900"
+					href="/application"
+					className="group inline-flex flex-col items-center justify-center px-5 backdrop-blur-lg backdrop-filter hover:bg-gray-50 dark:hover:bg-slate-900"
 				>
-					<LineChartIcon />
+					<BoxesIcon />
 				</Link>
 				<div className="flex items-center justify-center">
 					<Link
@@ -36,13 +33,13 @@ export default function BottomNavigation() {
 				</div>
 				<Link
 					href="/bento"
-					className="group inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-slate-900"
+					className="group inline-flex flex-col items-center justify-center px-5 backdrop-blur-lg backdrop-filter hover:bg-gray-50 dark:hover:bg-slate-900"
 				>
-					<LayoutDashboardIcon />
+					<LayoutPanelLeftIcon />
 				</Link>
 				<Link
 					href="/my"
-					className="group inline-flex flex-col items-center justify-center rounded-e-full px-5 hover:bg-gray-50 dark:hover:bg-slate-900"
+					className="group inline-flex flex-col items-center justify-center rounded-e-full px-5 backdrop-blur-lg backdrop-filter hover:bg-gray-50 dark:hover:bg-slate-900"
 				>
 					<UserIcon />
 				</Link>

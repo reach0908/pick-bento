@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google';
 
 import '@repo/ui/styles/globals.css';
 import BottomNavigation from '@/components/core/BottomNavigation';
+import TopNavigation from '@/components/core/TopNavigation';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 					defaultTheme="system"
 					enableSystem
 				>
+					<TopNavigation />
 					<main className="container mx-auto max-w-7xl flex-grow px-6 pb-6 pt-6">
 						{children}
 					</main>
