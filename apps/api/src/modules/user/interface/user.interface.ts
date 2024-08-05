@@ -5,7 +5,10 @@ export interface UserInterface {
 	// Basic Info
 	name: string;
 	image: string;
+
+	// user additional info
 	job: Job;
+	personality: string;
 
 	// Oauth Provider
 	providerId: string;

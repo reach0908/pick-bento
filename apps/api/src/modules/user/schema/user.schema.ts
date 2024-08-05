@@ -17,6 +17,9 @@ export class User {
 	@Prop({ type: String, enum: JOBS })
 	job: UserInterface['job'];
 
+	@Prop({ type: String })
+	personality: UserInterface['personality'];
+
 	@Prop({ type: String, required: true, enum: PROVIDERS })
 	provider: UserInterface['provider'];
 

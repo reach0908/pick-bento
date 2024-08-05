@@ -73,6 +73,10 @@ export class AuthService {
 			});
 		}
 
+		if (!user.job && !user.personality) {
+			isNewUser = true;
+		}
+
 		const accessToken = this.generateAccessToken(user);
 		const refreshToken = await this.generateRefreshToken(user);
 
