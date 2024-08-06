@@ -39,4 +39,5 @@ export {
 	Settings,
 	ShoppingCart,
 	Users2,
+	HeartIcon,
 } from 'lucide-react';
