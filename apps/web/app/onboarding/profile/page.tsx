@@ -1,18 +1,20 @@
 'use client';
 
-import Bento from '@/components/bento/Bento';
 import { Button, Card } from '@repo/ui';
 import Link from 'next/link';
 
 export default function Page(): JSX.Element {
 	return (
 		<section className="w-full">
-			첫번째 도시락을 만들어볼까요?
+			<div className="flex h-[400px] flex-row gap-4 pb-4">
+				<Card className="w-full flex-1">asd</Card>
+				<Card className="flex-1">asd</Card>
+			</div>
 			<Button className="w-full" asChild>
-				<Link href="/onboarding/bento/make">Next</Link>
+				<Link href="/onboarding/bento">Next</Link>
 			</Button>
 			<Button className="w-full" asChild>
-				<Link href="/onboarding/profile">Back</Link>
+				<Link href="/onboarding">Back</Link>
 			</Button>
 		</section>
 	);
