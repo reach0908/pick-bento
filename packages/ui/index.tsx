@@ -16,6 +16,9 @@ export * from '@ui/components/ui/tooltip';
 export * from '@ui/components/ThemeProvider';
 export * from '@ui/components/ThemeToggle';
 
+// Animation exports
+export * from '@ui/components/animations/BlurFade';
+
 // utils exports
 export { cn } from '@ui/lib/utils';
 
