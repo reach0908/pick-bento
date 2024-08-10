@@ -5,7 +5,7 @@ export default function Page(): JSX.Element {
 		<section>
 			bento page
 			<ThemeToggle />
-			<Button>{'shadcn Button in Web!'}</Button>
+			<Button variant="default">{'shadcn Button in Web!'}</Button>
 		</section>
 	);
 }

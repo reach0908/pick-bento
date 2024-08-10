@@ -13,7 +13,7 @@ export default function Page(): JSX.Element {
 			<Button className="w-full" asChild>
 				<Link href="/onboarding/bento">Next</Link>
 			</Button>
-			<Button className="w-full" asChild>
+			<Button className="w-full" asChild variant="link">
 				<Link href="/onboarding">Back</Link>
 			</Button>
 		</section>

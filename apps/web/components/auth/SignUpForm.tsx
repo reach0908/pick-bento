@@ -26,7 +26,7 @@ export function SignUpForm() {
 				<Button
 					asChild
 					size="lg"
-					className="flex w-full flex-row gap-2 bg-[#FEE500] p-6 hover:bg-[#FEE500]/70"
+					className="pointerhover:hover:bg-[#FEE500]/70 flex w-full flex-row gap-2 bg-[#FEE500] p-6"
 				>
 					<Link
 						href={'http://localhost:3000/auth/kakao/login'}

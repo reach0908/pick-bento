@@ -64,7 +64,11 @@ export default function Page(): JSX.Element {
 								</DropdownMenuCheckboxItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
-						<Button size="sm" className="h-8 gap-1">
+						<Button
+							size="sm"
+							className="h-8 gap-1"
+							variant="outline"
+						>
 							<PlusCircle className="h-3.5 w-3.5" />
 							<span className="sr-only sm:not-sr-only sm:whitespace-nowrap">
 								Request Product

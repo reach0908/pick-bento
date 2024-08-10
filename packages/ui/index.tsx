@@ -11,13 +11,14 @@ export * from '@ui/components/ui/sheet';
 export * from '@ui/components/ui/table';
 export * from '@ui/components/ui/tabs';
 export * from '@ui/components/ui/tooltip';
+export * from '@ui/components/ui/bentoGrid';
 
 // component exports
 export * from '@ui/components/ThemeProvider';
 export * from '@ui/components/ThemeToggle';
 
 // Animation exports
-export * from '@ui/components/animations/BlurFade';
+export * from '@ui/components/animations/blurFade';
 
 // utils exports
 export { cn } from '@ui/lib/utils';

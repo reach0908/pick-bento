@@ -23,7 +23,7 @@ export default function BottomNavigation() {
 				>
 					<BoxesIcon />
 				</Link>
-				<div className="flex items-center justify-center">
+				<div className="group inline-flex flex-col items-center justify-center px-5 backdrop-blur-lg backdrop-filter">
 					<Link
 						href="/search"
 						className="group inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 font-medium hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
