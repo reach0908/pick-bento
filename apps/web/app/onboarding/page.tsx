@@ -53,8 +53,10 @@ export default function Page(): JSX.Element {
 			</div>
 			<div>
 				<BlurFade delay={0.25 * 4} inView>
-					<Button className="w-full" asChild variant="outline">
-						<Link href="/onboarding/profile">시작하기</Link>
+					<Button asChild variant="outline">
+						<Link href="/onboarding/profile/step-one">
+							시작하기
+						</Link>
 					</Button>
 				</BlurFade>
 			</div>

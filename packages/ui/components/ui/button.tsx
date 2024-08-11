@@ -5,19 +5,19 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@ui/lib/utils';
 
 const buttonVariants = cva(
-	'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition-colors duration-200 ease-in-out',
+	'inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition-all duration-200 ease-in-out',
 	{
 		variants: {
 			variant: {
 				default:
 					'bg-primary text-primary-foreground pointerhover:hover:bg-primary/90 active:bg-primary/90 active:scale-95 active:shadow-inner',
 				destructive:
-					'bg-destructive text-destructive-foreground pointerhover:hover:bg-destructive/90 active:bg-primary/90',
+					'bg-destructive text-destructive-foreground pointerhover:hover:bg-destructive/90 active:bg-primary/90 active:scale-95 ',
 				outline:
-					'border border-input bg-background pointerhover:hover:bg-accent pointerhover:hover:text-accent-foreground active:bg-accent active:text-accent-foreground',
+					'border border-input bg-background pointerhover:hover:bg-accent pointerhover:hover:text-accent-foreground active:bg-accent active:text-accent-foreground active:scale-95',
 				secondary:
-					'bg-secondary text-secondary-foreground pointerhover:hover:bg-secondary/80 active:bg-secondary/80',
-				ghost: 'pointerhover:hover:bg-accent pointerhover:hover:text-accent-foreground active:bg-accent active:text-accent-foreground',
+					'bg-secondary text-secondary-foreground pointerhover:hover:bg-secondary/80 active:bg-secondary/80  active:scale-95 ',
+				ghost: 'pointerhover:hover:bg-accent pointerhover:hover:text-accent-foreground active:bg-accent active:text-accent-foreground active:scale-95',
 				link: 'text-primary underline-offset-4 pointerhover:hover:underline active:underline',
 			},
 			size: {

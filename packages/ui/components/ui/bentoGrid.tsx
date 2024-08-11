@@ -13,10 +13,10 @@ const BentoGrid = ({
 }) => {
 	return (
 		<div
-			className={cn(
-				'grid w-full auto-rows-[11rem] grid-cols-3 gap-3',
-				className,
-			)}
+			className={cn('grid w-full grid-cols-3 gap-3', className)}
+			style={{
+				gridTemplateRows: '17rem 12rem',
+			}}
 		>
 			{children}
 		</div>

@@ -12,6 +12,7 @@ export * from '@ui/components/ui/table';
 export * from '@ui/components/ui/tabs';
 export * from '@ui/components/ui/tooltip';
 export * from '@ui/components/ui/bentoGrid';
+export * from '@ui/components/ui/radio-group';
 
 // component exports
 export * from '@ui/components/ThemeProvider';
