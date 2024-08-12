@@ -1,11 +1,21 @@
 'use client';
 
-import { Badge, Button, Card } from '@repo/ui';
+import {
+	Badge,
+	Button,
+	Card,
+	Select,
+	SelectContent,
+	SelectItem,
+	SelectTrigger,
+	SelectValue,
+} from '@repo/ui';
 import Link from 'next/link';
 
 export default function Page(): JSX.Element {
 	return (
 		<section className="flex w-full flex-col gap-4">
+			<Card>asdasd</Card>
 			<div className="text-xl font-bold">
 				<span>당신의 성별은 무엇인가요?</span>
 			</div>
@@ -26,9 +36,24 @@ export default function Page(): JSX.Element {
 			<div className="text-xl font-bold">
 				<span>당신의 직업은 무엇인가요?</span>
 			</div>
-			<div className="flex flex-col justify-center gap-2"></div>
-			<div>
-				<Button className="w-full" asChild variant="outline">
+			<div className="flex flex-col justify-center gap-2">
+				<Select>
+					<SelectTrigger className="w-full rounded-lg">
+						<SelectValue placeholder="Select your job" />
+					</SelectTrigger>
+					<SelectContent>
+						<SelectItem value="light">Light</SelectItem>
+						<SelectItem value="dark">Dark</SelectItem>
+						<SelectItem value="system">System</SelectItem>
+					</SelectContent>
+				</Select>
+			</div>
+			<div className="flex w-full flex-col content-center justify-center align-middle">
+				<Button
+					className="w-[200px] rounded-2xl"
+					asChild
+					variant="outline"
+				>
 					<Link href="/onboarding/profile/step-two">Next</Link>
 				</Button>
 				<Button className="w-full" asChild variant="link">
