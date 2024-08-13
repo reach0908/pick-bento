@@ -14,6 +14,9 @@ export * from '@ui/components/ui/tooltip';
 export * from '@ui/components/ui/bentoGrid';
 export * from '@ui/components/ui/radio-group';
 export * from '@ui/components/ui/select';
+export * from '@ui/components/ui/form';
+export * from '@ui/components/ui/checkbox';
+export * from '@ui/components/ui/command';
 
 // component exports
 export * from '@ui/components/ThemeProvider';
@@ -24,6 +27,7 @@ export * from '@ui/components/animations/blurFade';
 
 // utils exports
 export { cn } from '@ui/lib/utils';
+export { zodResolver } from '@hookform/resolvers/zod';
 
 // icon exports
 export {
@@ -46,4 +50,6 @@ export {
 	ShoppingCart,
 	Users2,
 	HeartIcon,
+	ChevronsUpDownIcon,
+	CheckIcon,
 } from 'lucide-react';
