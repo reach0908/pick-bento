@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import {
 	// Icons
@@ -28,6 +30,7 @@ import {
 	TabsList,
 	TabsTrigger,
 } from '@repo/ui';
+import Link from 'next/link';
 
 export default function Page(): JSX.Element {
 	return (
@@ -88,14 +91,16 @@ export default function Page(): JSX.Element {
 						<CardContent>
 							<Table>
 								<TableHeader>
-									<TableRow>
-										<TableHead className="w-[100px] sm:table-cell">
-											<span className="sr-only">
-												Image
-											</span>
-										</TableHead>
-										<TableHead>Name</TableHead>
-									</TableRow>
+									<Link href="/application/1">
+										<TableRow>
+											<TableHead className="w-[100px] sm:table-cell">
+												<span className="sr-only">
+													Image
+												</span>
+											</TableHead>
+											<TableHead>이거눌러</TableHead>
+										</TableRow>
+									</Link>
 								</TableHeader>
 								<TableBody>
 									<TableRow>

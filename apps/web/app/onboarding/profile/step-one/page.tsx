@@ -21,135 +21,167 @@ import {
 	cn,
 	Card,
 	CardContent,
+	UserIcon,
 	CardTitle,
 } from '@repo/ui';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import Link from 'next/link';
-
-const languages = [
-	{ label: 'English', value: 'en' },
-	{ label: 'French', value: 'fr' },
-	{ label: 'German', value: 'de' },
-	{ label: 'Spanish', value: 'es' },
-	{ label: 'Portuguese', value: 'pt' },
-	{ label: 'Russian', value: 'ru' },
-	{ label: 'Japanese', value: 'ja' },
-	{ label: 'Korean', value: 'ko' },
-	{ label: 'Chinese', value: 'zh' },
-	{ label: 'Portuguese', value: 'pt' },
-	{ label: 'Russian', value: 'ru' },
-	{ label: 'Japanese', value: 'ja' },
-	{ label: 'Korean', value: 'ko' },
-	{ label: 'Chinese', value: 'zh' },
-] as const;
-
-const FormSchema = z.object({
-	language: z.string({
-		required_error: 'Please select a language.',
-	}),
-});
-
-type AppearanceFormValues = z.infer<typeof FormSchema>;
-
-const defaultValues: Partial<AppearanceFormValues> = {
-	language: 'en',
-};
+import { useState } from 'react';
 
 export default function Page(): JSX.Element {
-	const form = useForm<AppearanceFormValues>({
-		resolver: zodResolver(FormSchema),
-		defaultValues,
-	});
-
-	const onSubmit = (data: AppearanceFormValues) => {};
+	const [selectedOption, setSelectedOption] = useState(null);
+	const handleOptionClick = (option) => {
+		setSelectedOption(option);
+	};
 
 	return (
 		<section className="flex w-full flex-col gap-4">
-			<Form {...form}>
-				<form
-					onSubmit={form.handleSubmit(onSubmit)}
-					className="space-y-6"
+			<div className="space-y-2 text-center">
+				<h1 className="text-2xl font-bold tracking-tight sm:text-3xl">
+					Choose Your IT Career Path
+				</h1>
+				<p className="text-muted-foreground">
+					Select the IT field that interests you the most.
+				</p>
+			</div>
+			<div className="grid grid-cols-1 gap-4">
+				<div
+					className={`card rounded-md border p-4 transition-colors hover:bg-accent hover:text-accent-foreground ${
+						selectedOption === 'software-development'
+							? 'bg-accent text-accent-foreground'
+							: ''
+					}`}
+					onClick={() => handleOptionClick('software-development')}
 				>
-					<Card>
-						<FormField
-							control={form.control}
-							name="language"
-							render={({ field }) => (
-								<FormItem className="flex flex-col">
-									<CardTitle>
-										<div className="mb-4">
-											<FormLabel className="text-base">
-												당신의 직업은 뭔가요?
-											</FormLabel>
-											<FormDescription>
-												Select the items you want to
-												display in the sidebar.
-											</FormDescription>
-										</div>
-									</CardTitle>
-									<CardContent>
-										<FormControl>
-											<span>{field.value}</span>
-										</FormControl>
-										<Command>
-											<CommandInput placeholder="Search language..." />
-											<CommandList>
-												<CommandEmpty>
-													No language found.
-												</CommandEmpty>
-												<CommandGroup>
-													{languages.map(
-														(language) => (
-															<CommandItem
-																value={
-																	language.label
-																}
-																key={
-																	language.value
-																}
-																onSelect={() => {
-																	form.setValue(
-																		'language',
-																		language.value,
-																	);
-																}}
-															>
-																<CheckIcon
-																	className={cn(
-																		'mr-2 h-4 w-4',
-																		language.value ===
-																			field.value
-																			? 'opacity-100'
-																			: 'opacity-0',
-																	)}
-																/>
-																{language.label}
-															</CommandItem>
-														),
-													)}
-												</CommandGroup>
-											</CommandList>
-										</Command>
-									</CardContent>
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-					</Card>
-					<div>
-						<Button className="w-full" asChild variant="outline">
-							<Link href="/onboarding/profile/step-two">
-								Next
-							</Link>
-						</Button>
-						<Button className="w-full" asChild variant="link">
-							<Link href="/onboarding">Back</Link>
-						</Button>
+					<div className="flex items-center gap-4">
+						<UserIcon className="h-8 w-8 text-primary" />
+						<div>
+							<h3 className="text-base font-semibold">
+								Software Development
+							</h3>
+							<p className="text-sm text-muted-foreground">
+								Design, develop, and maintain software
+								applications.
+							</p>
+						</div>
 					</div>
-				</form>
-			</Form>
+				</div>
+				<div
+					className={`card rounded-md border p-4 transition-colors hover:bg-accent hover:text-accent-foreground ${
+						selectedOption === 'network-administration'
+							? 'bg-accent text-accent-foreground'
+							: ''
+					}`}
+					onClick={() => handleOptionClick('network-administration')}
+				>
+					<div className="flex items-center gap-4">
+						<UserIcon className="h-8 w-8 text-primary" />
+						<div>
+							<h3 className="text-base font-semibold">
+								Network Administration
+							</h3>
+							<p className="text-sm text-muted-foreground">
+								Manage and maintain computer networks and
+								systems.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div
+					className={`card rounded-md border p-4 transition-colors hover:bg-accent hover:text-accent-foreground ${
+						selectedOption === 'database-administration'
+							? 'bg-accent text-accent-foreground'
+							: ''
+					}`}
+					onClick={() => handleOptionClick('database-administration')}
+				>
+					<div className="flex items-center gap-4">
+						<UserIcon className="h-8 w-8 text-primary" />
+						<div>
+							<h3 className="text-base font-semibold">
+								Database Administration
+							</h3>
+							<p className="text-sm text-muted-foreground">
+								Design, implement, and maintain database
+								systems.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div
+					className={`card rounded-md border p-4 transition-colors hover:bg-accent hover:text-accent-foreground ${
+						selectedOption === 'cybersecurity'
+							? 'bg-accent text-accent-foreground'
+							: ''
+					}`}
+					onClick={() => handleOptionClick('cybersecurity')}
+				>
+					<div className="flex items-center gap-4">
+						<UserIcon className="h-8 w-8 text-primary" />
+						<div>
+							<h3 className="text-base font-semibold">
+								Cybersecurity
+							</h3>
+							<p className="text-sm text-muted-foreground">
+								Protect computer systems and networks from cyber
+								threats.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div
+					className={`card rounded-md border p-4 transition-colors hover:bg-accent hover:text-accent-foreground ${
+						selectedOption === 'cloud-computing'
+							? 'bg-accent text-accent-foreground'
+							: ''
+					}`}
+					onClick={() => handleOptionClick('cloud-computing')}
+				>
+					<div className="flex items-center gap-4">
+						<UserIcon className="h-8 w-8 text-primary" />
+						<div>
+							<h3 className="text-base font-semibold">
+								Cloud Computing
+							</h3>
+							<p className="text-sm text-muted-foreground">
+								Manage and maintain cloud-based infrastructure
+								and services.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div
+					className={`card rounded-md border p-4 transition-colors hover:bg-accent hover:text-accent-foreground ${
+						selectedOption === 'data-analytics'
+							? 'bg-accent text-accent-foreground'
+							: ''
+					}`}
+					onClick={() => handleOptionClick('data-analytics')}
+				>
+					<div className="flex items-center gap-4">
+						<UserIcon className="h-8 w-8 text-primary" />
+						<div>
+							<h3 className="text-base font-semibold">
+								Data Analytics
+							</h3>
+							<p className="text-sm text-muted-foreground">
+								Collect, analyze, and interpret data to drive
+								business decisions.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div>
+				<Button className="w-full" asChild variant="outline">
+					<Link href="/onboarding/profile/step-two">Next</Link>
+				</Button>
+				<Button className="w-full" asChild variant="link">
+					<Link href="/onboarding">Back</Link>
+				</Button>
+			</div>
 		</section>
 	);
 }

@@ -104,10 +104,10 @@ export default function Page(): JSX.Element {
 				</div>
 				<div>
 					<Button className="w-full" asChild variant="outline">
-						<Link href="/onboarding/profile/step-two">Next</Link>
+						<Link href="/">Next</Link>
 					</Button>
 					<Button className="w-full" asChild variant="link">
-						<Link href="/onboarding">Back</Link>
+						<Link href="/onboarding/step-one">Back</Link>
 					</Button>
 				</div>
 			</div>

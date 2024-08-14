@@ -17,6 +17,7 @@ export * from '@ui/components/ui/select';
 export * from '@ui/components/ui/form';
 export * from '@ui/components/ui/checkbox';
 export * from '@ui/components/ui/command';
+export * from '@ui/components/ui/avatar';
 
 // component exports
 export * from '@ui/components/ThemeProvider';
@@ -52,4 +53,7 @@ export {
 	HeartIcon,
 	ChevronsUpDownIcon,
 	CheckIcon,
+	DownloadIcon,
+	StarIcon,
+	SmartphoneIcon,
 } from 'lucide-react';
