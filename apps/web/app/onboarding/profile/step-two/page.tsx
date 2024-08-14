@@ -17,6 +17,7 @@ import {
 	Card,
 } from '@repo/ui';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const items = [
 	{
@@ -52,111 +53,64 @@ const FormSchema = z.object({
 });
 
 export default function Page(): JSX.Element {
-	const form = useForm<z.infer<typeof FormSchema>>({
-		resolver: zodResolver(FormSchema),
-		defaultValues: {
-			items: ['recents', 'home'],
-		},
-	});
-
-	function onSubmit(data: z.infer<typeof FormSchema>) {
-		alert({
-			title: 'You submitted the following values:',
-			description: (
-				<pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
-					<code className="text-white">
-						{JSON.stringify(data, null, 2)}
-					</code>
-				</pre>
-			),
-		});
-	}
+	const [selectedOptions, setSelectedOptions] = useState([]);
+	const hobbies = [
+		'📚 Reading',
+		'🍳 Cooking',
+		'🌱 Gardening',
+		'🥾 Hiking',
+		'🎨 Painting',
+		'📷 Photography',
+		'🚲 Cycling',
+		'🧘‍♀️ Yoga',
+		'✈️ Traveling',
+		'🍞 Baking',
+	];
+	const handleOptionClick = (option) => {
+		if (selectedOptions.includes(option)) {
+			setSelectedOptions(selectedOptions.filter((o) => o !== option));
+		} else {
+			if (selectedOptions.length < 5) {
+				setSelectedOptions([...selectedOptions, option]);
+			}
+		}
+	};
 
 	return (
 		<section className="flex w-full flex-col gap-4">
-			<Form {...form}>
-				<form
-					onSubmit={form.handleSubmit(onSubmit)}
-					className="space-y-8"
-				>
-					<Card className="bg-white/80">
-						<FormField
-							control={form.control}
-							name="items"
-							render={() => (
-								<FormItem>
-									<div className="mb-4">
-										<FormLabel className="text-base">
-											당신은 어떤 것을 좋아하나요??
-										</FormLabel>
-										<FormDescription>
-											Select the items you want to display
-											in the sidebar.
-										</FormDescription>
-									</div>
-									{items.map((item) => (
-										<FormField
-											key={item.id}
-											control={form.control}
-											name="items"
-											render={({ field }) => {
-												return (
-													<FormItem
-														key={item.id}
-														className="flex flex-row items-start space-x-3 space-y-0"
-													>
-														<FormControl>
-															<Checkbox
-																checked={field.value?.includes(
-																	item.id,
-																)}
-																onCheckedChange={(
-																	checked,
-																) => {
-																	return checked
-																		? field.onChange(
-																				[
-																					...field.value,
-																					item.id,
-																				],
-																			)
-																		: field.onChange(
-																				field.value?.filter(
-																					(
-																						value,
-																					) =>
-																						value !==
-																						item.id,
-																				),
-																			);
-																}}
-															/>
-														</FormControl>
-														<FormLabel className="font-normal">
-															{item.label}
-														</FormLabel>
-													</FormItem>
-												);
-											}}
-										/>
-									))}
-									<FormMessage />
-								</FormItem>
-							)}
-						/>
-					</Card>
-					<div>
-						<Button className="w-full" asChild variant="outline">
-							<Link href="/">Next</Link>
-						</Button>
-						<Button className="w-full" asChild variant="link">
-							<Link href="/onboarding/profile/step-one">
-								Back
-							</Link>
-						</Button>
-					</div>
-				</form>
-			</Form>
+			<div className="w-full max-w-md space-y-6">
+				<div className="text-center">
+					<h1 className="text-3xl font-bold text-foreground">
+						Select Your Interests
+					</h1>
+					<p className="mt-2 text-muted-foreground">
+						Choose up to 5 of your favorite hobbies or interests.
+					</p>
+				</div>
+				<div className="grid grid-cols-2 gap-4">
+					{hobbies.map((hobby) => (
+						<button
+							key={hobby}
+							onClick={() => handleOptionClick(hobby)}
+							className={`inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${
+								selectedOptions.includes(hobby)
+									? 'border-2 border-primary bg-primary text-primary-foreground'
+									: 'border border-input bg-background text-foreground hover:bg-accent hover:text-accent-foreground'
+							}`}
+						>
+							{hobby}
+						</button>
+					))}
+				</div>
+				<div>
+					<Button className="w-full" asChild variant="outline">
+						<Link href="/onboarding/profile/step-two">Next</Link>
+					</Button>
+					<Button className="w-full" asChild variant="link">
+						<Link href="/onboarding">Back</Link>
+					</Button>
+				</div>
+			</div>
 		</section>
 	);
 }
