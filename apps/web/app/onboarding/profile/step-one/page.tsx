@@ -20,6 +20,8 @@ import {
 	CheckIcon,
 	cn,
 	Card,
+	CardContent,
+	CardTitle,
 } from '@repo/ui';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -31,6 +33,11 @@ const languages = [
 	{ label: 'French', value: 'fr' },
 	{ label: 'German', value: 'de' },
 	{ label: 'Spanish', value: 'es' },
+	{ label: 'Portuguese', value: 'pt' },
+	{ label: 'Russian', value: 'ru' },
+	{ label: 'Japanese', value: 'ja' },
+	{ label: 'Korean', value: 'ko' },
+	{ label: 'Chinese', value: 'zh' },
 	{ label: 'Portuguese', value: 'pt' },
 	{ label: 'Russian', value: 'ru' },
 	{ label: 'Japanese', value: 'ja' },
@@ -71,75 +78,61 @@ export default function Page(): JSX.Element {
 							name="language"
 							render={({ field }) => (
 								<FormItem className="flex flex-col">
-									<div className="mb-4">
-										<FormLabel className="text-base">
-											당신의 직업은 뭔가요?
-										</FormLabel>
-										<FormDescription>
-											Select the items you want to display
-											in the sidebar.
-										</FormDescription>
-									</div>
-
-									<FormControl>
-										<Button
-											variant="outline"
-											role="combobox"
-											className={cn(
-												'w-[200px] justify-between',
-												!field.value &&
-													'text-muted-foreground',
-											)}
-										>
-											{field.value
-												? languages.find(
-														(language) =>
-															language.value ===
-															field.value,
-													)?.label
-												: 'Select language'}
-											<ChevronsUpDownIcon className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-										</Button>
-									</FormControl>
-
-									<Command>
-										<CommandInput placeholder="Search language..." />
-										<CommandList>
-											<CommandEmpty>
-												No language found.
-											</CommandEmpty>
-											<CommandGroup>
-												{languages.map((language) => (
-													<CommandItem
-														value={language.label}
-														key={language.value}
-														onSelect={() => {
-															form.setValue(
-																'language',
-																language.value,
-															);
-														}}
-													>
-														<CheckIcon
-															className={cn(
-																'mr-2 h-4 w-4',
-																language.value ===
-																	field.value
-																	? 'opacity-100'
-																	: 'opacity-0',
-															)}
-														/>
-														{language.label}
-													</CommandItem>
-												))}
-											</CommandGroup>
-										</CommandList>
-									</Command>
-
-									<FormDescription>
-										This is the language that will be used
-										in the dashboard.
-									</FormDescription>
+									<CardTitle>
+										<div className="mb-4">
+											<FormLabel className="text-base">
+												당신의 직업은 뭔가요?
+											</FormLabel>
+											<FormDescription>
+												Select the items you want to
+												display in the sidebar.
+											</FormDescription>
+										</div>
+									</CardTitle>
+									<CardContent>
+										<FormControl>
+											<span>{field.value}</span>
+										</FormControl>
+										<Command>
+											<CommandInput placeholder="Search language..." />
+											<CommandList>
+												<CommandEmpty>
+													No language found.
+												</CommandEmpty>
+												<CommandGroup>
+													{languages.map(
+														(language) => (
+															<CommandItem
+																value={
+																	language.label
+																}
+																key={
+																	language.value
+																}
+																onSelect={() => {
+																	form.setValue(
+																		'language',
+																		language.value,
+																	);
+																}}
+															>
+																<CheckIcon
+																	className={cn(
+																		'mr-2 h-4 w-4',
+																		language.value ===
+																			field.value
+																			? 'opacity-100'
+																			: 'opacity-0',
+																	)}
+																/>
+																{language.label}
+															</CommandItem>
+														),
+													)}
+												</CommandGroup>
+											</CommandList>
+										</Command>
+									</CardContent>
 									<FormMessage />
 								</FormItem>
 							)}
