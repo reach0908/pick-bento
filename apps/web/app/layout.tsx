@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import '@repo/ui/styles/globals.css';
-import PageTransition from '@/components/core/PageTransition';
 import ShaderGradientEffect from '@/components/core/ShaderGradientEffect';
 
 const inter = Inter({ subsets: ['latin'] });
