@@ -3,8 +3,6 @@
 import {
 	Button,
 	BlurFade,
-	BentoGrid,
-	BentoCard,
 	Card,
 	CardHeader,
 	CardTitle,
