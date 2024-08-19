@@ -174,7 +174,7 @@ export default function Page(): JSX.Element {
 					</div>
 				</div>
 			</div>
-			<div>
+			<div className="fixed">
 				<Button className="w-full" asChild variant="outline">
 					<Link href="/onboarding/profile/step-two">Next</Link>
 				</Button>

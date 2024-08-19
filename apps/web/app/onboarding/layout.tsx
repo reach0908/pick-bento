@@ -4,10 +4,10 @@ import { PropsWithChildren } from 'react';
 
 export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
 	return (
-		<div>
-			<main className="container mx-auto flex min-h-dvh flex-col items-center justify-center align-middle">
+		<main className="container mx-auto flex min-h-dvh flex-col py-48">
+			<section className="flex flex-1 flex-col justify-between gap-8">
 				{children}
-			</main>
-		</div>
+			</section>
+		</main>
 	);
 }
