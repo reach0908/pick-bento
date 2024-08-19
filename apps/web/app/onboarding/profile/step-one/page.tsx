@@ -14,7 +14,7 @@ export default function Page(): JSX.Element {
 
 	return (
 		<div className="flex flex-col">
-			<header className="absoulte top-0 z-10 w-full bg-white shadow-md">
+			<header className="absoulte top-0 z-10 w-full shadow-md">
 				<BlurFade delay={0.25 * 2} inView>
 					<span className="text-5xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
 						어서오세요 👋
@@ -26,7 +26,7 @@ export default function Page(): JSX.Element {
 					</span>
 				</BlurFade>
 			</header>
-			<div className="h-96 overflow-auto p-4">
+			<section className="h-96 overflow-auto p-4">
 				{/** TODO(지노): 스크롤리스트로 리팩토링 */}
 				<div className="grid grid-cols-1 gap-4">
 					<div
@@ -162,9 +162,9 @@ export default function Page(): JSX.Element {
 						</div>
 					</div>
 				</div>
-			</div>
-
-			<div className="absoulte bottom-0 z-10 w-full">
+			</section>
+			{/** Footer */}
+			<footer className="absoulte bottom-0 z-10 w-full">
 				<Button
 					className="w-full rounded-2xl"
 					asChild
@@ -175,7 +175,7 @@ export default function Page(): JSX.Element {
 				<Button className="w-full" asChild variant="link">
 					<Link href="/onboarding">Back</Link>
 				</Button>
-			</div>
+			</footer>
 		</div>
 	);
 }

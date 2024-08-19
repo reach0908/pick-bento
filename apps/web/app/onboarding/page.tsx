@@ -36,7 +36,7 @@ export default function Page(): JSX.Element {
 						</span>
 					</BlurFade>
 				</div>
-				<div>
+				<footer>
 					<BlurFade delay={0.25 * 4} inView>
 						<Button
 							asChild
@@ -48,7 +48,7 @@ export default function Page(): JSX.Element {
 							</Link>
 						</Button>
 					</BlurFade>
-				</div>
+				</footer>
 			</div>
 		</>
 	);
