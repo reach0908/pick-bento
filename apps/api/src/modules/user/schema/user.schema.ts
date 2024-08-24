@@ -3,11 +3,20 @@ import { HydratedDocument } from 'mongoose';
 import { PROVIDERS } from '../constant/user-provider.constant';
 import { UserInterface } from '../interface/user.interface';
 import { JOBS } from '../constant/user-job.constant';
+import { v4 as uuidv4 } from 'uuid';
 
 export type UserDocument = HydratedDocument<User>;
 
 @Schema({ collection: 'users', timestamps: true, versionKey: false })
 export class User {
+	@Prop({
+		type: String,
+		required: true,
+		unique: true,
+		default: () => uuidv4(),
+	})
+	id: UserInterface['id'];
+
 	@Prop({ type: String })
 	name: UserInterface['name'];
 
@@ -19,6 +28,9 @@ export class User {
 
 	@Prop({ type: String })
 	personality: UserInterface['personality'];
+
+	@Prop({ type: Array })
+	hobbyList: UserInterface['hobbyList'];
 
 	@Prop({ type: String, required: true, enum: PROVIDERS })
 	provider: UserInterface['provider'];

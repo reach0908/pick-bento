@@ -2,6 +2,7 @@ import { Job } from '../constant/user-job.constant';
 import { Provider } from '../constant/user-provider.constant';
 
 export interface UserInterface {
+	id: string;
 	// Basic Info
 	name: string;
 	image: string;
@@ -9,6 +10,7 @@ export interface UserInterface {
 	// user additional info
 	job: Job;
 	personality: string;
+	hobbyList: string[];
 
 	// Oauth Provider
 	providerId: string;

@@ -1,6 +1,8 @@
 import { Inject, Injectable, UnauthorizedException } from '@nestjs/common';
-import { KEY as USER_REPOSITORY_INTERFACE_KEY } from '../user/interface/user-repository.interface';
-import { UserRepository } from '../user/user.repository';
+import {
+	KEY as USER_REPOSITORY_INTERFACE_KEY,
+	UserRepositoryInterface,
+} from '../user/interface/user-repository.interface';
 import { LoginDTO } from './dto/login.dto';
 import { JwtService } from '@nestjs/jwt';
 import { UserDocument } from '../user/schema/user.schema';
@@ -13,7 +15,7 @@ export class AuthService {
 	constructor(
 		private readonly jwtService: JwtService,
 		@Inject(USER_REPOSITORY_INTERFACE_KEY)
-		private readonly userRepository: UserRepository,
+		private readonly userRepository: UserRepositoryInterface,
 		@Inject(authConfig.KEY)
 		private readonly config: ConfigType<typeof authConfig>,
 	) {}
@@ -73,7 +75,8 @@ export class AuthService {
 			});
 		}
 
-		if (!user.job && !user.personality) {
+		// 회원 기본정보가 하나도 없으면 온보딩 페이지로 리다이렉트시키기 위함
+		if (!user?.job && !user?.personality && user?.hobbyList.length === 0) {
 			isNewUser = true;
 		}
 

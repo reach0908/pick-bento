@@ -25,6 +25,7 @@ export class AuthController {
 		const { accessToken, refreshToken, isNewUser } =
 			await this.authService.login(req.user);
 
+		// 쿠키에 토큰을 저장하고 리다이렉트
 		res.cookie('accessToken', accessToken, { httpOnly: true });
 		res.cookie('refreshToken', refreshToken, { httpOnly: true });
 
