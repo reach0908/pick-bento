@@ -4,6 +4,7 @@ import {
 	KEY as USER_REPOSITORY_INTERFACE_KEY,
 	UserRepositoryInterface,
 } from './interface/user-repository.interface';
+import { UserInterface } from './interface/user.interface';
 
 @Injectable()
 export class UserService {
@@ -12,11 +13,11 @@ export class UserService {
 		private readonly userRepository: UserRepositoryInterface,
 	) {}
 
-	getUserById(id: number) {
+	getUserById(id: UserInterface['id']) {
 		return this.userRepository.findOne({ id });
 	}
 
-	patchUserById(id: number, updateUserDto: UpdateUserDto) {
+	patchUserById(id: UserInterface['id'], updateUserDto: UpdateUserDto) {
 		return `This action updates a #${id} user`;
 	}
 
