@@ -7,4 +7,6 @@ export interface ApplicationReviewInterface {
 	userId: UserInterface['id'];
 	rating: number;
 	comment: string;
+	createdAt: Date;
+	updatedAt: Date;
 }
