@@ -10,10 +10,12 @@ import {
 import { Request, Response } from 'express';
 import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiTags } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
 	constructor(private readonly authService: AuthService) {}
+	@ApiTags('카카오 로그인 API')
 	@Get('/kakao/login')
 	@UseGuards(AuthGuard('kakao'))
 	async kakaoAuth() {}
